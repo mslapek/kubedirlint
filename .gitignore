@@ -1,4 +1,7 @@
 # output binary file
 kubedirlint
 
+# other output files
+coverage.out
+
 .DS_Store

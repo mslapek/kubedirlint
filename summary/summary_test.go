@@ -99,6 +99,19 @@ spec:
 				},
 			},
 		},
+		{
+			name: "buggy yaml",
+			data: []byte(`
+apiVersion apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3`),
+			wantErr: true,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
