@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added 
+
+- Added option `-C` to change the directory before linting.
+
 ## [0.1.0] - 2022-11-27
 
 ### Added

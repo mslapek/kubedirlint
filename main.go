@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"io/fs"
 	"kubedirlint/summary"
@@ -10,7 +11,17 @@ import (
 	"sort"
 )
 
+var changeDirFlag = flag.String("C", ".", "change the directory before linting")
+
 func main() {
+	flag.Parse()
+
+	err := os.Chdir(*changeDirFlag)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
+	}
+
 	fs, err := getFiles()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to find YAML files: %s\n", err)
